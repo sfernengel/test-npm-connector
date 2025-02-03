@@ -33,42 +33,46 @@ This connector includes three applications: `customer-number-generator-app`, `em
 The following environment variables are required for configuration:
 
 ```plaintext
-CTP_REGION
-CTP_PROJECT_KEY
-CTP_CLIENT_ID
-CTP_CLIENT_SECRET
-CTP_SCOPES
+CTP_TEST
 ```
 
 ### 2. Email Verification Sender App
 
+The following environment variables are required for configuration:
+
 ```plaintext
-CTP_REGION
-CTP_PROJECT_KEY
-CTP_CLIENT_ID
-CTP_CLIENT_SECRET
-CTP_SCOPES
+CTP_TEST
 ```
 
 ### 3. Email Verification Receiver App
 
+The following environment variables are required for configuration:
+
 ```plaintext
-CTP_REGION
-CTP_PROJECT_KEY
-CTP_CLIENT_ID
-CTP_CLIENT_SECRET
-CTP_SCOPES
+CTP_TEST
 ```
 
 ## Getting Started
 
 Make sure you have the copy of the source code on your local machine. Use GitHub to fork the project to your account. While creating the fork, ensure the repo is public. Otherwise you need to allow the `connect-mu` to access your repo. Then clone the repo onto your machine. There should be a folder created on your machine now. Go into that folder, it should contain 3 application folders.
 
+### Postman Collection API Client
+
+Make sure the API client for Postman has **at least** the following scopes:
+
+- manage_customers
+- manage_products
+- manage_categories
+- view_tax_categories
+- manage_api_clients
+- manage_connectors
+- manage_connectors_deployments
+
 ### Developing the first application: customer-number-generator-app
 
 1. cd into `customer-number-generator-app` and install the dependencies
 
-```shell
+```bash
 cd customer-number-generator-app
 yarn
 ```
@@ -90,7 +94,7 @@ updateActions.push(updateAction);
 
 3. Build the application
 
-```shell
+```bash
 yarn build
 ```
 
@@ -98,27 +102,33 @@ yarn build
 
 Before we can run this application locally we need client credentials in the `.env` file. Therefore first rename `.env.example` file to `.env`
 
-```shell
+```bash
 mv .env.example .env
 ```
 
-Create an API Client in Merchant Center for your Composable Commerce project under `Settings->Developer Settings` section. This can be an admin client, i.e has all the permissions.
+Create an API Client in Merchant Center for your Composable Commerce project under `Settings->Developer Settings` section. This can be an admin client, i.e has all the permissions. At least you need following in scope:
+
+- manage_customers
+- manage_extensions
+- manage_subscriptions
+- manage_key_value_documents
 
 Copy those values into your `.env` file. So at the end, your `.env` file should have the following environment variables set.
 
-```plaintext
+```bash
 CTP_CLIENT_ID=
 CTP_CLIENT_SECRET=
 CTP_PROJECT_KEY=
 CTP_SCOPES=
-CTP_REGION=europe-west1.gcp
+CTP_AUTH_URL=
+CTP_API_URL=
 ```
 
 5. Run the application
 
 Now, run the application
 
-```shell
+```bash
 yarn start:dev
 ```
 
@@ -134,14 +144,14 @@ Since every application is running on port 8080, we should stop this server befo
 
 1. cd into `email-verification-sender-app` and install the dependencies
 
-```shell
+```bash
 cd email-verification-sender-app
 yarn
 ```
 
 2. Build the application
 
-```shell
+```bash
 yarn build
 ```
 
@@ -149,26 +159,27 @@ yarn build
 
 Before we can run this application locally we need client credentials in the `.env` file. Therefore first rename `.env.example` file to `.env`
 
-```shell
+```bash
 mv .env.example .env
 ```
 
 You can reuse the client credentials from the previous step.
 Copy those values into your `.env` file. So at the end, your `.env` file should have the following environment variables set.
 
-```plaintext
+```bash
 CTP_CLIENT_ID=
 CTP_CLIENT_SECRET=
 CTP_PROJECT_KEY=
 CTP_SCOPES=
-CTP_REGION=europe-west1.gcp
+CTP_AUTH_URL=
+CTP_API_URL=
 ```
 
 4. Run the application
 
 Now, run the application
 
-```shell
+```bash
 yarn start:dev
 ```
 
@@ -185,14 +196,14 @@ Since every application is running on port 8080, we should stop this server befo
 
 1. cd into `email-verification-receiver-app` and install the dependencies
 
-```shell
+```bash
 cd email-verification-receiver-app
 yarn
 ```
 
 2. Build the application
 
-```shell
+```bash
 yarn build
 ```
 
@@ -200,26 +211,27 @@ yarn build
 
 Before we can run this application locally we need client credentials in the `.env` file. Therefore first rename `.env.example` file to `.env`
 
-```shell
+```bash
 mv .env.example .env
 ```
 
 You can reuse the client credentials from the previous step.
 Copy those values into your `.env` file. So at the end, your `.env` file should have the following environment variables set.
 
-```plaintext
+```bash
 CTP_CLIENT_ID=
 CTP_CLIENT_SECRET=
 CTP_PROJECT_KEY=
 CTP_SCOPES=
-CTP_REGION=europe-west1.gcp
+CTP_AUTH_URL=
+CTP_API_URL=
 ```
 
 4. Run the application
 
 Now, run the application
 
-```shell
+```bash
 yarn start:dev
 ```
 
