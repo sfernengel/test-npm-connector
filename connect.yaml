@@ -5,36 +5,18 @@ deployAs:
     scripts:
       postDeploy: npm install && npm run build && npm run connector:post-deploy
       preUndeploy: npm install && npm run build && npm run connector:pre-undeploy
-    configuration:
-      standardConfiguration:
-        - key: CTP_TEST
-          description: dummy config option, enter any value
-          required: false
-          default: anything
   - name: email-verification-sender-app
     applicationType: event
     endpoint: /send-email-verification
     scripts:
       postDeploy: npm install && npm run build && npm run connector:post-deploy
       preUndeploy: npm install && npm run build && npm run connector:pre-undeploy
-    configuration:
-      standardConfiguration:
-        - key: CTP_TEST
-          description: dummy config option, enter any value
-          required: false
-          default: anything
   - name: email-verification-receiver-app
     applicationType: service
     endpoint: /verify-token
     scripts:
       postDeploy: npm install && npm run build && npm run connector:post-deploy
       preUndeploy: npm install && npm run build && npm run connector:pre-undeploy
-    configuration:
-      standardConfiguration:
-        - key: CTP_TEST
-          description: dummy config option, enter any value
-          required: false
-          default: anything
 inheritAs:
   apiClient:
     scopes:
