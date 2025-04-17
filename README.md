@@ -28,29 +28,7 @@ This connector includes three applications: `customer-number-generator-app`, `em
 
 ## Configuration Options
 
-### 1. Customer Number Generator App
-
-The following environment variables are required for configuration:
-
-```plaintext
-CTP_TEST
-```
-
-### 2. Email Verification Sender App
-
-The following environment variables are required for configuration:
-
-```plaintext
-CTP_TEST
-```
-
-### 3. Email Verification Receiver App
-
-The following environment variables are required for configuration:
-
-```plaintext
-CTP_TEST
-```
+There are no configuration options required to run applications in this connector.
 
 ## Getting Started
 
